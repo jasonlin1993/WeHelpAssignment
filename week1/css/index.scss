@@ -1,0 +1,172 @@
+* {
+  // border: 1px solid black;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+// 字體大小
+$font-size: 20px;
+
+// RWD 平板
+@mixin pad {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+// RWD 手機
+@mixin mobile {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+// 第一區
+header {
+  display: flex;
+  font-size: $font-size;
+  margin: 1px;
+  width: 100%;
+  align-items: center;
+
+  .header__item {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px;
+
+    .header__item__logo {
+      font-weight: bold;
+    }
+
+    .header__item__bar {
+      display: none;
+    }
+
+    .header__item__text {
+      display: flex;
+      padding: 0px 5px;
+    }
+
+    @include mobile {
+      .header__item__text {
+        display: none;
+      }
+
+      .header__item__bar {
+        display: flex;
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}
+
+// 第二區
+.header__banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  background-color: #00fff6;
+  font-weight: bold;
+
+  .header__banner__text {
+    font-size: $font-size * 2;
+    font-size: 2rem;
+  }
+}
+
+// 第三區
+.container {
+  display: flex;
+  margin: 30px 0px;
+  font-size: $font-size;
+  justify-content: center;
+  align-items: center;
+
+  .container__section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 1200px;
+  }
+
+  .container__section__Promotion {
+    display: flex;
+    width: calc(33.3333% - 20px);
+    align-items: center;
+    background-color: #f2e8e8;
+    margin: 10px 10px;
+  }
+
+  .container__section__Promotion__text {
+    margin: 10px;
+  }
+
+  .container__section__Promotion__picture {
+    height: 50px;
+    width: 80px;
+    object-fit: cover;
+  }
+
+  .container__section__title {
+    display: flex;
+    margin: 10px 10px;
+    flex-direction: column;
+    width: calc(16.66665% - 20px);
+    height: auto;
+
+    .container__section__title__image {
+      object-fit: cover;
+    }
+
+    .container__section__title__text {
+      font-size: $font-size;
+      display: flex;
+      background-color: #f2e8e8;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+  }
+
+  @include pad {
+    .container__section {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+    }
+
+    .container__section__Promotion {
+      width: calc(50% - 20px);
+    }
+
+    .Promotion3 {
+      width: 100%;
+    }
+
+    .container__section__title {
+      width: calc(25% - 20px);
+    }
+  }
+
+  @include mobile {
+    .container__section {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+    }
+
+    .container__section__Promotion {
+      display: flex;
+      width: 100%;
+    }
+
+    .container__section__title {
+      width: 96%;
+    }
+  }
+}
