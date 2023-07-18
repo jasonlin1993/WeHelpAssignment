@@ -1,0 +1,252 @@
+* {
+  // border: 1px solid black;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+// 字體大小
+$font-size: 20px;
+
+// RWD 平板
+@mixin pad {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+// RWD 手機
+@mixin mobile {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+// 第一區
+header {
+  display: flex;
+  font-size: $font-size;
+  margin: 1px;
+  width: 100%;
+  align-items: center;
+
+  .header__item {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px;
+
+    .header__item__logo {
+      font-weight: bold;
+    }
+
+    .header__item__bar {
+      display: none;
+    }
+
+    .header__item__text {
+      display: flex;
+      padding: 0px 5px;
+    }
+
+    @include mobile {
+      .header__item__text {
+        display: none;
+      }
+
+      .header__item__bar {
+        display: flex;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.menu__container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.menu__checkbox {
+  display: none;
+}
+
+.header__item--mobile {
+  display: none;
+
+  @include mobile {
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100vh;
+    width: 50%;
+    right: 0;
+    top: 0;
+    box-shadow: -0.2em 0 0.5em 0rem rgba(0, 0, 0, 0.3);
+    background-color: white;
+    z-index: 3;
+    .header__item--mobile__text {
+      display: flex;
+      font-size: $font-size;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      width: 100%;
+      height: 50px;
+      &:hover {
+        background-color: #e0dede;
+        color: black;
+        transition: background-color 0.5s;
+      }
+    }
+  }
+}
+
+.menu__checkbox:checked ~ .header__item--mobile {
+  @include mobile {
+    display: flex;
+  }
+}
+
+// 第二區
+.header__banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  background-color: #00fff6;
+  font-weight: bold;
+
+  .header__banner__text {
+    font-size: $font-size * 2;
+    font-size: 2rem;
+  }
+}
+
+// 第三區
+.container {
+  display: flex;
+  margin: 30px 0px;
+  font-size: $font-size;
+  justify-content: center;
+  align-items: center;
+
+  .container__section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 1200px;
+  }
+
+  .container__section__Promotion {
+    display: flex;
+    width: calc(33.3333% - 20px);
+    align-items: center;
+    background-color: #f2e8e8;
+    margin: 10px 10px;
+  }
+
+  .container__section__Promotion__text {
+    margin: 10px;
+  }
+
+  .container__section__Promotion__picture {
+    height: 50px;
+    width: 80px;
+    object-fit: cover;
+  }
+
+  .container__section__title {
+    position: relative;
+    display: flex;
+    margin: 10px 10px;
+    flex-direction: column;
+    width: calc(16.66665% - 20px);
+    height: 230px;
+
+    .container__section__title__image {
+      object-fit: cover;
+      height: 55%;
+    }
+
+    .container__section__title__text {
+      font-size: $font-size;
+      display: flex;
+      background-color: #f2e8e8;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 0px;
+      height: 45%;
+    }
+  }
+
+  @include pad {
+    .container__section {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+    }
+
+    .container__section__Promotion {
+      width: calc(50% - 20px);
+    }
+
+    .container__section__Promotion:nth-child(3) {
+      width: 100%;
+    }
+
+    .container__section__title {
+      width: calc(25% - 20px);
+    }
+  }
+
+  @include mobile {
+    .container__section {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+    }
+
+    .container__section__Promotion {
+      display: flex;
+      width: 100%;
+    }
+
+    .container__section__title {
+      width: 96%;
+      height: 50%;
+
+      .container__section__title__text {
+        font-size: $font-size;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 10px 0px;
+        height: 40%;
+      }
+    }
+  }
+}
+
+// Load More
+.container__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container__button--load {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $font-size;
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+    cursor: pointer;
+  }
+}
