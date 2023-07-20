@@ -22,12 +22,10 @@ def get_page_info(root):
     likes = root.find_all('div', class_='nrec')
     previous_page = root.find(
         'div', 'btn-group btn-group-paging').find_all('a')[1]['href']
-
     return titles, likes, previous_page
 
 
-def collect_articles_info(titles, likes, previous_page):
-    global article_urls, movie_articles
+def collect_articles_info(titles, likes, previous_page, movie_articles, article_urls):
     min_len = min(len(titles), len(likes))
     for i in range(min_len):
         if titles[i].a is not None:
@@ -47,7 +45,7 @@ def add_article_time(title, url):
     return [title, time]
 
 
-def worker():
+def worker(article_urls, movie_articles):
     while not article_urls.empty():
         title, url = article_urls.get()  # 獲取標題與URL
         time_info = add_article_time(title, url)
@@ -60,12 +58,13 @@ def worker():
 for _ in range(3):
     root = parse_html(url)
     titles, likes, previous_page = get_page_info(root)
-    collect_articles_info(titles, likes, previous_page)
+    collect_articles_info(titles, likes, previous_page,
+                          movie_articles, article_urls)
     url = 'https://www.ptt.cc' + previous_page  # 更新 url 為上一頁的頁面
 
 threads = []
 for _ in range(10):  # 建立 10 個工作緒
-    t = threading.Thread(target=worker)
+    t = threading.Thread(target=worker, args=(article_urls, movie_articles))
     t.start()
     threads.append(t)
 
