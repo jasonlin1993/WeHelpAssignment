@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={{ url_for("static", filename="styles/css/index.css" ) }} />
+    <title>week4</title>
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <p class="head__text">歡迎光臨，請輸入帳號密碼</p>
+      </div>
+    </header>
+    <section>
+      <div class="container">
+        <p class="container__text">登入系統</p>
+        <form id="loginForm" method="POST" action="/signin">
+          <div class="container__user">
+            <label for="name" class="container__user__text">帳號</label>
+            <input type="text" name="account"/>
+          </div>
+          <div class="container__user">
+            <label for="pwd" class="container__user__text">密碼</label>
+            <input type="password" name="password"/>
+          </div>
+          <div class="container__checkbox">
+            <label for="check" class="container__checkbox__text">同意條款</label>
+            <input type="checkbox" id="check" name="check" />
+          </div>
+          <div class="container__submit">
+            <input type="submit" value="登入" onclick="Check(event);" />
+          </div>
+        </form>
+      </div>
+    </section>
+    <hr class="cutLine"/>
+    <section>
+      <form id="loginForm" method="POST" action="/submit">
+        <div class="container">
+            <p class="container__text">計算正整數的平方</p>
+            <div class="container__count">
+                <label for="name" class="container__count__text">正整數</label>
+                <input type="text" id="count" name="count" />
+            </div>
+            <button class="container__button" type="submit" onclick="checkNumber(event)">計算</button>
+        </div>
+      </form>    
+    <script type="text/javascript" src={{ url_for('static', filename="javascript/index.js" ) }}></script>
+  </body>
+</html>
