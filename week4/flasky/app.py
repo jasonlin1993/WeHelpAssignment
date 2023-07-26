@@ -12,12 +12,10 @@ app = Flask(
 
 app.secret_key="test"
 
-# 首頁頁面
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# 會員頁面
 @app.route("/member")
 def member():
     if "account" in session:
@@ -25,7 +23,6 @@ def member():
     else:
         return redirect("/")
 
-# /error?message=自訂的錯誤訊息
 @app.route("/error")
 def error():
     message=request.args.get("message", "帳號、或密碼輸入錯誤")
@@ -35,11 +32,15 @@ def error():
 def signin():
     account = request.form.get('account')
     password = request.form.get('password')
+
+    # 1. 我們要處理帳號或密碼是空白的狀況，錯誤訊息不同。
     if not account  or not password:
         return redirect("/error?message=請輸入帳號、密碼")
+    
     elif account == 'test' and password == 'test':
         session['account']=account
         return redirect("/member")
+    
     else:
         return redirect("/error?message=帳號、或密碼輸入錯誤")
 
@@ -48,12 +49,10 @@ def signout():
     del session["account"]
     return redirect("/")
 
-
 @app.route("/square/<int:count>")
 def square(count):
     ans = count * count
     return render_template("squareNumber.html", result=ans)
-
 
 if __name__ == "__main__":
     app.run(port=3000)
