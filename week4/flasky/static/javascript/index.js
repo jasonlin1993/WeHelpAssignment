@@ -7,10 +7,12 @@ function Check(event) {
 }
 
 function checkNumber(event) {
+    event.preventDefault();
     let countValue = document.getElementById("count").value;
     let regex = /^[1-9]\d*$/;
     if (!regex.test(countValue)) {
         alert("請輸入正整數");
-        event.preventDefault();
+    } else {
+        location.href = '/square/' + countValue;
     }
 }

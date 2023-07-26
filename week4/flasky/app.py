@@ -3,7 +3,6 @@ from flask import request
 from flask import render_template 
 from flask import session
 from flask import redirect
-from flask import url_for
 
 app = Flask(
     __name__,
@@ -36,21 +35,19 @@ def error():
 def signin():
     account = request.form.get('account')
     password = request.form.get('password')
-    if account == 'test' and password == 'test':
+    if not account  or not password:
+        return redirect("/error?message=請輸入帳號、密碼")
+    elif account == 'test' and password == 'test':
         session['account']=account
         return redirect("/member")
     else:
         return redirect("/error?message=帳號、或密碼輸入錯誤")
-    
+
 @app.route('/signout')
 def signout():
     del session["account"]
     return redirect("/")
 
-@app.route('/submit', methods=['POST'])
-def submit():
-    count = request.form.get('count')
-    return redirect(url_for('square', count=count))
 
 @app.route("/square/<int:count>")
 def square(count):
