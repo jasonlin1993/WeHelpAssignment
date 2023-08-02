@@ -18,3 +18,11 @@
   ![Test Image](picture/task2-2.png)
   ![Test Image](picture/task2-3.png)
   
+---
+
+### 要求三: SQL CRUD
+利⽤要求⼆建立的資料庫和資料表，寫出能夠滿⾜以下要求的 SQL 指令：
+
+- 使⽤ INSERT 指令新增⼀筆資料到 member 資料表中，這筆資料的 username 和 password 欄位必須是 test。
+
+  ![Test Image](picture/task3-1.png)
