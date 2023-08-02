@@ -27,6 +27,39 @@
 
   ![Test Image](picture/task3-1.png)
 
+  接著繼續新增⾄少 4 筆隨意的資料。
+
   ![Test Image](picture/task3-2.png)
 
   ![Test Image](picture/task3-3.png)
+
+- 使⽤ SELECT 指令取得所有在 member 資料表中的會員資料。
+
+  ![Test Image](picture/task3-4.png)
+
+- 使⽤ SELECT 指令取得所有在 member 資料表中的會員資料，並按照 time 欄位，由 近到遠排序。
+
+  ![Test Image](picture/task3-5.png)
+
+- 使⽤ SELECT 指令取得 member 資料表中第 2 到第 4 筆共三筆資料，並按照 time 欄 位，由近到遠排序。 ( 並非編號 2、3、4 的資料，⽽是排序後的第 2 ~ 4 筆資料 )
+
+   ![Test Image](picture/task3-6.png)
+
+- 使⽤ SELECT 指令取得欄位 username 是 test 的會員資料。
+
+  ![Test Image](picture/task3-7.png)
+
+- 使⽤ SELECT 指令取得欄位 username 是 test、且欄位 password 也是 test 的資料。
+
+  ![Test Image](picture/task3-8.png)
+
+- 使⽤ UPDATE 指令更新欄位 username 是 test 的會員資料，將資料中的 name 欄位改 成 test2。
+
+  ![Test Image](picture/task3-9.png)
+
+---
+
+
+
+
+  
