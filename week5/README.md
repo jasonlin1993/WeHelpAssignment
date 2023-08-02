@@ -59,7 +59,22 @@
 
 ---
 
+### 要求四: SQL Aggregate Functions
+利⽤要求⼆建立的資料庫和資料表，寫出能夠滿⾜以下要求的 SQL 指令：
 
+- 取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。
+
+  ![Test Image](picture/task4-1.png)
+
+- 取得 member 資料表中，所有會員 follower_count 欄位的總和。
+
+  ![Test Image](picture/task4-2.png)
+
+- 取得 member 資料表中，所有會員 follower_count 欄位的平均數。
+
+  ![Test Image](picture/task4-3.png)
+
+---
 
 
   
