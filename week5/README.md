@@ -26,3 +26,7 @@
 - 使⽤ INSERT 指令新增⼀筆資料到 member 資料表中，這筆資料的 username 和 password 欄位必須是 test。
 
   ![Test Image](picture/task3-1.png)
+
+  ![Test Image](picture/task3-2.png)
+
+  ![Test Image](picture/task3-3.png)
