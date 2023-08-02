@@ -76,5 +76,29 @@
 
 ---
 
+### 要求五: SQL JOIN
+1. 在資料庫中，建立新資料表紀錄留⾔資訊，取名字為 message 。資料表中必須包含以 下欄位設定：
+   
+    | 欄位名稱 | 資料型態 | 額外設定 | 用途說明 |
+  | -------- | -------- | -------- | --------|
+  | id | bigint  | 主鍵、自動選擇  | 獨立編號 |
+  | member_id | bigint  | 不可為空值,外鍵對應 member 資料表中的 id  | 留言者會員編號 |
+  | content | varchar(255)  | 不可為空值  | 留言內容 |
+  | like_count  | int unsigned  | 不可為空值，預設為 0  | 按讚的數量 |
+  | time  | datetime  | 不可為空值，預設為當前時間  | 留言時間 |
 
-  
+  ![Test Image](picture/task5-1.png)
+
+  ![Test Image](picture/task5-2.png)
+
+-  使⽤ SELECT 搭配 JOIN 語法，取得所有留⾔，結果須包含留⾔者的姓名。
+
+  ![Test Image](picture/task5-3.png)
+
+- 使⽤ SELECT 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有 留⾔，資料中須包含留⾔者的姓名。
+
+  ![Test Image](picture/task5-4.png)
+
+- 使⽤ SELECT、SQL Aggregate Functions 搭配 JOIN 語法，取得 member 資料表中 欄位 username 是 test 的所有留⾔平均按讚數。
+
+  ![Test Image](picture/task5-5.png)
