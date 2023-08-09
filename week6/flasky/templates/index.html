@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={{ url_for("static", filename="styles/css/index.css" ) }} />
+    <title>week4</title>
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <p class="head__text">歡迎光臨，請輸入帳號密碼</p>
+      </div>
+    </header>
+    <section>
+      <div class="container">
+        <p class="container__text">註冊帳號</p>
+        <form id="signupForm" method="POST" action="/signup">
+          <div class="container__user">
+            <label for="name" class="container__user__text">姓名</label>
+            <input type="text" name="name" />
+          </div>
+          <div class="container__user">
+            <label for="username" class="container__user__text">帳號</label>
+            <input type="text" name="username" />
+          </div>
+          <div class="container__user">
+            <label for="pwd" class="container__user__text">密碼</label>
+            <input type="password" name="password" />
+          </div>
+          <div class="container__submit">
+            <input type="submit" value="註冊" onclick="checkForm(event, 'signupForm')" />
+          </div>
+        </form>
+      </div>
+      <hr class="cutLine" />
+      <div class="container">
+        <p class="container__text">登入系統</p>
+        <form id="signinForm" method="POST" action="/signin">
+          <div class="container__user">
+            <label for="username" class="container__user__text">帳號</label>
+            <input type="text" name="username" required/>
+          </div>
+          <div class="container__user">
+            <label for="pwd" class="container__user__text">密碼</label>
+            <input type="password" name="password" required/>
+          </div>
+          <div class="container__submit">
+            <input type="submit" value="登入" onclick="checkForm(event, 'signinForm')"  />
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+  <script type="text/javascript" src={{ url_for('static', filename="javascript/index.js" ) }}></script>
+</html>

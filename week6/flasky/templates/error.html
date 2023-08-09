@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={{ url_for("static", filename="styles/css/index.css" ) }} />
+    <title>week4</title>
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <p class="head__text">失敗頁面</p>
+      </div>
+    </header>
+    <section>
+      <div class="container">
+        <p class="container__text">{{ message }}</p>
+        <div class="container__text"><a href="/">返回首頁</a></div>
+      </div>
+    </section>
+  </body>
+</html>

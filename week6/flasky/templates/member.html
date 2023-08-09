@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={{ url_for("static", filename="styles/css/index.css" ) }} />
+    <title>week4</title>
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <p class="head__text">歡迎光臨，這是會員頁</p>
+      </div>
+    </header>
+    <section>
+      <div class="container">
+        <p class="container__text">{{ name }}，歡迎登入系統</p>
+        <div class="container__text"><a href="/signout">登出系統</a></div>
+      </div>
+      <hr class="cutLine" />
+      <div class="container">
+        <p class="container__text">快來留言吧</p>
+        <form id="messageForm" method="POST" action="/createMessage">
+          <div class="container__user">
+            <label for="content" class="container__user__text">內容</label>
+            <input type="text" name="content" />
+          </div>
+          <div class="container__submit">
+            <input type="submit" value="送出" />
+          </div>
+        </form>
+      </div>
+      <hr class="cutLine" />
+      <div class="container">
+        {% for name, content in messages %}
+        <p class="container__text__message">{{ name }}:{{ content }}</p>
+        {% endfor %}
+      </div>
+    </section>
+  </body>
+</html>
