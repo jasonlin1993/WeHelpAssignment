@@ -40,7 +40,7 @@ def get_messages():
 def is_username_registered(username):
     cursor = db.cursor()
     cursor.execute(
-        "SELECT * FROM member WHERE username LIKE (%s)", (username,))
+        "SELECT * FROM member WHERE username=(%s)", (username,))
     result = cursor.fetchall()
     cursor.close()
     return bool(result)
