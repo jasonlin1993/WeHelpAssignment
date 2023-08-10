@@ -40,6 +40,7 @@ def get_messages():
 def is_username_registered(username):
     cursor = db.cursor()
     cursor.execute(
+        # 判斷帳號使否重複，不會使用 LIKE 來做比對，完全比對就使用 = 就好
         "SELECT * FROM member WHERE username=(%s)", (username,))
     result = cursor.fetchall()
     cursor.close()
