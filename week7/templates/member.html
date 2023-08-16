@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={{ url_for("static", filename="styles/css/index.css" ) }} />
+    <title>week4</title>
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <p class="head__text">歡迎光臨，這是會員頁</p>
+      </div>
+    </header>
+    <section>
+      <div class="container">
+        <p class="container__text"><span id="usernameDisplay">{{ name }}</span>，歡迎登入系統</p>
+        <div class="container__text"><a href="/signout">登出系統</a></div>
+      </div>
+      <hr class="cutLine" />
+      <div class="container">
+        <p class="container__text">查詢會員姓名</p>
+        <form id="memberForm" method="GET">
+          <div class="container__user">
+              <input type="text" name="username" id="usernameInput" />
+              <div class="container__submit">
+                  <input type="button" value="查詢" onclick="fetchMemberData()" />
+              </div>
+          </div>
+      </form>
+      </div>
+      <div class="container">
+        <p class="container__text__member"></p>
+      </div>
+    </section>
+    <hr class="cutLine" />
+    <section>
+      <div class="container">
+        <p class="container__text">更新我的姓名</p>
+        <div class="container__user">
+            <input type="text" name="newName" />
+            <div class="container__submit">
+              <input type="button" value="更新" onclick="updateName()" />
+            </div>
+        </div>
+      </div>
+      <div class="container">
+        <p class="container__text__member--patch"></p>
+      </div>
+    </section>    
+  </body>
+  <script type="text/javascript" src={{ url_for('static', filename="javascript/index.js" ) }}></script>
+</html>
